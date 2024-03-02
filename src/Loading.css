@@ -1,0 +1,8 @@
+.loading {
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: tomato;
+  height: 100vh;
+}

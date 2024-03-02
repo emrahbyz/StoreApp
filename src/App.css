@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100px;
+}
+.refreshBtn {
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 20px;
+  background-color: #858569;
+  color: #e4e4e4;
+  margin-left: 55px;
+  font-size: 36px;
+}
