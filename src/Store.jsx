@@ -1,39 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Store.css";
+const Store = ({
+  id,
+  image,
+  company,
+  name,
+  description,
+  price,
+  removeCard,
+}) => {
+  const [showFullText, setshowFullText] = useState(false);
 
-const Store = ({ store, removeCard }) => {
   return (
     <div className="mainContainer">
-      {store.map((item) => (
-        <StoreItem key={item.id} item={item} removeCard={removeCard} />
-      ))}
-    </div>
-  );
-};
+      <div className="storeContainer">
+        <img src={image} alt={company} />
 
-const StoreItem = ({ item, removeCard }) => {
-  const [showFullText, setShowFullText] = React.useState(false);
-
-  const toggleShowText = () => {
-    setShowFullText(!showFullText);
-  };
-
-  return (
-    <div className="storeContainer">
-      <img src={item.image} alt={item.company} />
-      <div className="importInfo">
-        <h2> Name : {item.name} </h2>
-        <h2> Price : $ {item.price} </h2>
-      </div>
-      <p>
-        {showFullText
-          ? item.description
-          : `${item.description.slice(0, 233)}...`}
-        <button onClick={toggleShowText}>
-          {showFullText ? "Show less" : "Read More"}
+        <div className="importInfo">
+          <h2>{name}</h2>
+          <h2>${price}</h2>
+        </div>
+        <p>
+          {showFullText ? description : `${description.slice(0, 233)}...`}
+          <button onClick={() => setshowFullText(!showFullText)}>
+            {showFullText ? "show less" : "read more"}
+          </button>
+        </p>
+        <button className="delete-btn" onClick={() => removeCard(id)}>
+          not interested
         </button>
-      </p>
-      <button onClick={() => removeCard(item.id)}>Remove</button>
+      </div>
     </div>
   );
 };
